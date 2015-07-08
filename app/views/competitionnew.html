@@ -1,0 +1,37 @@
+<h2>Create New Competition</h2>
+<hr />
+{{message}}
+<form role="form" ng-submit="addCompetition()">
+	<div class="row">
+		<div class="input-group">
+			<input type="text" ng-model="newCompetition.CompName" placeholder="Name" class="form-control" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<input type="date" ng-model="newCompetition.EventDate" placeholder="Date" class="form-control" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<input type="type" ng-model="newCompetition.CompType" placeholder="Type" class="form-control" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<input type="type" ng-model="newCompetition.CompCSS" placeholder="CSS" class="form-control" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<input type="type" ng-model="newCompetition.CompCat" placeholder="Category" class="form-control" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<span class="input-group-button">
+			<button type="submit" class="btn btn-primary">{{submitbtn}}</button>
+		</span>	
+		</div>
+	</div>
+</form>

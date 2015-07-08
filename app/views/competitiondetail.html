@@ -1,0 +1,19 @@
+<div class="container">
+	<h2>{{competitionID}} Results</h2>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td>Player</td>
+				<td>Score</td>
+				<td>NR</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="result in results | orderBy:'-R1Score'">
+				<td><a href="#result/{{result.ID}}/edit">{{result.Name}} ({{result.Handicap}})</a></td>
+				<td>{{result.R1Score}}</td>
+				<td><input type="checkbox" ng-model="result.NR" ng-true-value="'true'" /></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

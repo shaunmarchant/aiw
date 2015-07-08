@@ -1,0 +1,65 @@
+<div class="container">
+	<h2>{{competitionID}} Results</h2>
+	<img id="myspinner" src="./images/spinner.gif" ng-show="loading"/>
+	<div class="row" ng-hide="loading">
+		<div class="col-md-12" ng-form name="myResults">
+			<div>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td>Entry ID</td>
+							<td>Last Name</td>
+							<td>First Name</td>
+							<td>Handicap</td>
+							<td>Gross Score</td>
+							<td>Net Score</td>
+							<td>Rank</td>
+							<td>NR</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="result in results">
+							<td>
+								<div class="input-group">
+									<input type="text" ng-model="result.EntryID" ng-disabled="true" class="form-control" />
+								</div>
+							</td>
+							<td>
+								<div class="input-group">
+									<input type="text" ng-model="result.LastName" ng-change="result.changed=true" placeholder="Last Name" class="form-control" />
+								</div>
+							</td>
+							<td>
+								<div class="input-group">
+									<input type="text" ng-model="result.FirstName" ng-change="result.changed=true" placeholder="First Name" class="form-control" />
+								</div>
+							</td>
+							<td>
+								<div class="input-group">
+									<input type="text" ng-model="result.Handicap" ng-change="result.changed=true" placeholder="Handicap" class="form-control" />
+								</div>
+							</td>
+							<td>
+								<div class="input-group">
+									<input type="text" ng-model="result.GrossScore" ng-change="result.changed=true" placeholder="Round 1 Score" class="form-control" />
+								</div>
+							</td>
+							<td>
+								<div class="input-group">
+									<input type="text" ng-model="result.NettScore" ng-change="result.changed=true" placeholder="Round 2 Score" class="form-control" />
+								</div>
+							</td>
+							<td>
+								<div class="input-group">
+									<input type="text" ng-model="result.Rank" ng-change="result.changed=true" placeholder="Rank" class="form-control" />
+								</div>
+							</td>
+							<td><input type="checkbox" ng-model="result.NR" ng-change="result.changed=true" ng-true-value="'true'" /></td>
+						</tr>
+					</tbody>
+				</table>
+				<button type="submit" data-ng-disabled="myResults.$pristine" ng-click="save()">Save Changes</button>
+			</div>
+		</div>
+</div>

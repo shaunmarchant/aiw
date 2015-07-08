@@ -1,0 +1,64 @@
+<h2>Add new result</h2>
+<hr />
+{{message}}  {{selected}}
+<form role="form" ng-submit="addResult()">
+	<div class="row">
+		<div class="input-group">
+			<input type="text" ng-model="newResult.CompID" placeholder="{{competitionID}}" class="form-control" disabled />
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<input type="text" ng-model="newResult.FirstName" placeholder="First Name" class="form-control" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<input type="text" ng-model="newResult.LastName" placeholder="Last Name" class="form-control" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<input type="type" ng-model="newResult.Handicap" placeholder="Handicap" class="form-control" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<input type="type" ng-model="newResult.GrossScore" placeholder="Gross Score/Points" class="form-control" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<input type="type" ng-model="newResult.NettScore" placeholder="Net Score" class="form-control" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<input type="type" ng-model="newResult.Rank" placeholder="Rank" class="form-control" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<label>NR'd?
+			<input type="checkbox" ng-model="newResult.NR" class="form-control"/>
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<span class="input-group-button">
+			<button type="submit" class="btn btn-primary">{{submitbtn}}</button>
+		</span>	
+		</div>
+	</div>
+</form>
+<br>
+<angucomplete-alt id="ex1"
+              placeholder="Search names"
+              pause="100"
+              selected-object="newResult.LastName"
+              local-data="members"
+              search-fields="name"
+              title-field="name"
+              minlength="1"
+              input-class="form-control form-control-small"/>
