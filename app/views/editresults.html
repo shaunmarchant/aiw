@@ -57,12 +57,86 @@
 							</td>
 							<td><input type="checkbox" ng-model="result.NR" ng-change="result.changed=true" ng-true-value="'true'" /></td>
 							<td>
-								<button type="button" ng-click="removeEntry(result.EntryID)"><span class="btn btn-default btn-xs btn-danger glyphicon glyphicon-remove"></span></button>
+								<button type="button" ng-click="removeEntry(result.EntryID, $index)" class="btn btn-default btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
 							</td>
 						</tr>
 					</tbody>
 				</table>
-				<button type="submit" data-ng-disabled="myResults.$pristine" ng-click="save()">Save Changes</button>
+				<button type="submit" class="btn btn-primary" data-ng-disabled="myResults.$pristine" ng-click="save()">Save Changes</button>
+				<br />
+				<br />
+				<div class="panel panel-default">
+			    <div class="panel-heading">Add new result</div>
+			    <div class="panel-body">
+						<form role="form" name="addScore" ng-submit="addResult()">
+							<table>
+								<tr>
+									<td>
+										<div class="input-group">
+											<angucomplete-alt id="ex1" ng-model="searchPlayer"
+											  placeholder="Search for player"
+											  pause="100"
+											  selected-object="selectedLastname"
+											  local-data="members"
+											  search-fields="name"
+											  title-field="name"
+											  description-field="handicap"
+											  minlength="1"
+											  input-class="form-control form-control-small" />
+										</div>
+									</td>
+								</tr>
+								<tr>								
+									<td>
+										<div>
+											<input type="text" ng-model="FirstName" placeholder="First Name" class="form-control" />
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="text" ng-model="LastName" placeholder="Last Name" class="form-control" />
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="type" ng-model="Handicap" placeholder="Handicap" class="form-control" />
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<input type="type" ng-model="GrossScore" placeholder="Gross Score/Points" class="form-control" />
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="type" ng-model="NettScore" placeholder="Net Score" class="form-control" />
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="type" ng-model="Rank" placeholder="Rank" class="form-control" />
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="input-group">
+											NR <input type="checkbox" ng-model="NR" class="form-control" ng-true-value="'true'" />
+										</div>
+									</td>
+									<td>
+										<div>
+											<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"> Save</span></button>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
 			</div>
 		</div>
 </div>

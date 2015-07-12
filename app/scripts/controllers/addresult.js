@@ -18,12 +18,6 @@ angular.module('amiwinningApp')
       {name: 'Williams, Dave', handicap: '20.2', category: '3'},
       {name: 'Beedy, Sarah', handicap: '5.5', category: '2'}
     ];
-	
-	$scope.members2 = [
-      {FirstName: 'Shaun', LastName: 'Marchant', handicap: '15.2', category: '3'},
-      {FirstName: 'Zeberdy', LastName: 'Williams', handicap: '20.2', category: '3'},
-      {FirstName: 'Sarah', LastName: 'Beedy', handicap: '5.5', category: '2'}
-    ];
 
 	$scope.selectedLastname = function(selected) {
 		$scope.Handicap = selected.description;
@@ -31,10 +25,6 @@ angular.module('amiwinningApp')
 		$scope.FirstName = $scope.newName[1].trim();
 		$scope.LastName = $scope.newName[0].trim();
 	};
-	
-	$scope.igotcalled = function() {
-		console.log("hello");
-	}
 	
 	$scope.addResult = function() {
 	  $scope.submitbtn = "Saving...";

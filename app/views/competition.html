@@ -2,7 +2,7 @@
 	<h2>Current Competitions</h2>
 	<img id="myspinner" src="./images/spinner.gif" ng-show="loading"/>
 	<div ng-hide="loading">
-		<a href="#/competition/new">New Competition</a>
+		<button class="btn btn-default" ng-click="go('/competition/new')">Add Competition</button>
 	</div>
 	<table class="table table-striped" ng-hide="loading">
 		<thead>
@@ -15,10 +15,10 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="competition in competitions">
+			<tr ng-repeat="competition in competitions | orderBy:'-EventDate' ">
 				<td><a href="#/competition/{{competition.CompType}}/{{competition.CompID}}">{{competition.CompID}}</a></td>
 				<td><a href="#/competition/{{competition.CompType}}/{{competition.CompID}}">{{competition.CompName}}</a></td>
-				<td>{{competition.EventDate}}</td>
+				<td>{{competition.EventDate | date:'dd/MM/yyyy'}}</td>
 				<td>{{competition.CompType}}</td>
 				<td>{{competition.CompCat}}</td>
 			</tr>

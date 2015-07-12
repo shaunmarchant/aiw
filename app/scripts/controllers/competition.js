@@ -9,7 +9,7 @@
  */
 
  angular.module('amiwinningApp')
-  .controller('CompetitionCtrl', function ($scope, $http) {
+  .controller('CompetitionCtrl', function ($scope, $http, $location) {
 	$scope.loading = true;	
 	var url = 'http://5.179.74.124:86/api/Competitions';
 	$http.get(url).
@@ -21,6 +21,10 @@
 		$scope.loading = false;
 		console.log('error');
 	});
+	
+	$scope.go = function ( path ) {
+		$location.path( path );
+	};
 
   });
  

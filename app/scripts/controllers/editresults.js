@@ -59,7 +59,6 @@ angular.module('amiwinningApp')
 				}
 			}
 		).success(function (data) {
-			console.log("Changes to entry " + result.EntryID + " saved.");
 			$scope.loadResults();
 	  }).error(function (data) {
 		alert("An error has occurred:" + data);
@@ -67,9 +66,8 @@ angular.module('amiwinningApp')
 
 	};
 	
-	$scope.removeEntry = function(data) {
-		var idx = $scope.results.indexOf(data);
-		console.log("about to delete " + data);
+	$scope.removeEntry = function(data, idx) {
+		console.log("Deleting " + data);
 		$http.delete('http://5.179.74.124:86/api/Results/' + data).
 			success(function (data, status) {
 				$scope.results.splice(idx,1);
@@ -79,6 +77,56 @@ angular.module('amiwinningApp')
 				alert("An error has occurred: " + data.EntryID);
 			});
 		$scope.loadResults();
+	};
+		
+		
+	// Add Result Code
+	$scope.submitbtn = "Add Result";	
+	
+	$scope.members = [
+      {name: 'Marchant, Shaun', handicap: '15.2', category: '3'},
+      {name: 'Williams, Dave', handicap: '20.2', category: '3'},
+      {name: 'Beedy, Sarah', handicap: '5.5', category: '2'}
+    ];
+
+	$scope.selectedLastname = function(selected) {
+		$scope.Handicap = selected.description;
+		$scope.newName = selected.title.split(',');
+		$scope.FirstName = $scope.newName[1].trim();
+		$scope.LastName = $scope.newName[0].trim();
+	};
+	
+	$scope.addResult = function() {
+	  $scope.submitbtn = "Saving...";
+	  console.log($scope.LastName);
+	  var result = {
+		'CompID': $scope.competitionID,
+		'FirstName': $scope.FirstName,
+		'LastName': $scope.LastName,
+		'Handicap': $scope.Handicap,
+		'GrossScore': $scope.GrossScore,
+		'NR': $scope.NR,
+		'NettScore': $scope.NettScore,
+		'Rank': $scope.Rank
+	  };
+	  console.log(result);
+	  $http.post('http://5.179.74.124:86/api/Results',
+			JSON.stringify(result),
+			{
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			}
+		).success(function (data) {
+		$scope.submitbtn = "Saved!";
+		alert('Added successfully!');
+		$scope.results.push(data);
+		$scope.addScore.$setUntouched()
+	  }).error(function (data) {
+	    $scope.submitbtn = "Add Result";
+		$scope.message = "An error has occurred:" + data;
+	  });
+
 	};
 	
   });
