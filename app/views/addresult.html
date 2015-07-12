@@ -9,38 +9,52 @@
 	</div>
 	<div class="row">
 		<div class="input-group">
-			<input type="text" ng-model="newResult.FirstName" placeholder="First Name" class="form-control" />
+			<angucomplete-alt id="ex1" class="form-control" ng-model="searchPlayer"
+              placeholder="Search for player"
+              pause="100"
+              selected-object="selectedLastname"
+              local-data="members"
+              search-fields="name"
+              title-field="name"
+			  description-field="handicap"
+              minlength="1"
+              input-class="form-control form-control-small" />
 		</div>
 	</div>
 	<div class="row">
 		<div class="input-group">
-			<input type="text" ng-model="newResult.LastName" placeholder="Last Name" class="form-control" />
+			<input type="text" ng-model="FirstName" placeholder="First Name" class="form-control" />
 		</div>
 	</div>
 	<div class="row">
 		<div class="input-group">
-			<input type="type" ng-model="newResult.Handicap" placeholder="Handicap" class="form-control" />
+			<input type="text" ng-model="LastName" placeholder="Last Name" class="form-control" />
 		</div>
 	</div>
 	<div class="row">
 		<div class="input-group">
-			<input type="type" ng-model="newResult.GrossScore" placeholder="Gross Score/Points" class="form-control" />
+			<input type="type" ng-model="Handicap" placeholder="Handicap" class="form-control" />
 		</div>
 	</div>
 	<div class="row">
 		<div class="input-group">
-			<input type="type" ng-model="newResult.NettScore" placeholder="Net Score" class="form-control" />
+			<input type="type" ng-model="GrossScore" placeholder="Gross Score/Points" class="form-control" />
 		</div>
 	</div>
 	<div class="row">
 		<div class="input-group">
-			<input type="type" ng-model="newResult.Rank" placeholder="Rank" class="form-control" />
+			<input type="type" ng-model="NettScore" placeholder="Net Score" class="form-control" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<input type="type" ng-model="Rank" placeholder="Rank" class="form-control" />
 		</div>
 	</div>
 	<div class="row">
 		<div class="input-group">
 			<label>NR'd?
-			<input type="checkbox" ng-model="newResult.NR" class="form-control"/>
+			<input type="checkbox" ng-model="NR" class="form-control"/>
 			</label>
 		</div>
 	</div>
@@ -53,12 +67,7 @@
 	</div>
 </form>
 <br>
-<angucomplete-alt id="ex1"
-              placeholder="Search names"
-              pause="100"
-              selected-object="newResult.LastName"
-              local-data="members"
-              search-fields="name"
-              title-field="name"
-              minlength="1"
-              input-class="form-control form-control-small"/>
+
+			  
+			  
+			  
