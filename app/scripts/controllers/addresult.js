@@ -14,22 +14,40 @@ angular.module('amiwinningApp')
 	$scope.submitbtn = "Add Result";
 	
 	$scope.members = [
-      {name: 'Marchant, Shaun', eHandicap: '15.2', category: '3'},
-      {name: 'Zeberdy, Sharon', eHandicap: '8.6', category: '2'},
-      {name: 'Beedy, Sarah', eHandicap: '1.2', category: '1'}
+      {name: 'Marchant, Shaun', handicap: '15.2', category: '3'},
+      {name: 'Williams, Dave', handicap: '20.2', category: '3'},
+      {name: 'Beedy, Sarah', handicap: '5.5', category: '2'}
     ];
+	
+	$scope.members2 = [
+      {FirstName: 'Shaun', LastName: 'Marchant', handicap: '15.2', category: '3'},
+      {FirstName: 'Zeberdy', LastName: 'Williams', handicap: '20.2', category: '3'},
+      {FirstName: 'Sarah', LastName: 'Beedy', handicap: '5.5', category: '2'}
+    ];
+
+	$scope.selectedLastname = function(selected) {
+		$scope.Handicap = selected.description;
+		$scope.newName = selected.title.split(',');
+		$scope.FirstName = $scope.newName[1].trim();
+		$scope.LastName = $scope.newName[0].trim();
+	};
+	
+	$scope.igotcalled = function() {
+		console.log("hello");
+	}
 	
 	$scope.addResult = function() {
 	  $scope.submitbtn = "Saving...";
+	  console.log($scope.LastName);
 	  var result = {
 		'CompID': $scope.competitionID,
-		'FirstName': $scope.newResult.FirstName,
-		'LastName': $scope.newResult.LastName,
-		'Handicap': $scope.newResult.Handicap,
-		'GrossScore': $scope.newResult.GrossScore,
-		'NR': $scope.newResult.NR,
-		'NettScore': $scope.newResult.NettScore,
-		'Rank': $scope.newResult.Rank
+		'FirstName': $scope.FirstName,
+		'LastName': $scope.LastName,
+		'Handicap': $scope.Handicap,
+		'GrossScore': $scope.GrossScore,
+		'NR': $scope.NR,
+		'NettScore': $scope.NettScore,
+		'Rank': $scope.Rank
 	  };
 	  console.log(result);
 	  $http.post('http://5.179.74.124:86/api/Results',
