@@ -56,6 +56,9 @@
 								</div>
 							</td>
 							<td><input type="checkbox" ng-model="result.NR" ng-change="result.changed=true" ng-true-value="'true'" /></td>
+							<td>
+								<button type="button" ng-click="removeEntry(result.EntryID)"><span class="btn btn-default btn-xs btn-danger glyphicon glyphicon-remove"></span></button>
+							</td>
 						</tr>
 					</tbody>
 				</table>

@@ -67,4 +67,18 @@ angular.module('amiwinningApp')
 
 	};
 	
+	$scope.removeEntry = function(data) {
+		var idx = $scope.results.indexOf(data);
+		console.log("about to delete " + data);
+		$http.delete('http://5.179.74.124:86/api/Results/' + data).
+			success(function (data, status) {
+				$scope.results.splice(idx,1);
+				alert(data.EntryID + " deleted!");
+			}).
+			error(function(data) {
+				alert("An error has occurred: " + data.EntryID);
+			});
+		$scope.loadResults();
+	};
+	
   });
